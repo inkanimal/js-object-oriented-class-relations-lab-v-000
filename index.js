@@ -21,5 +21,22 @@ class Driver {
   }
 }
 
+class Passenger {
+   constructor(name){
+     this.name = name;
+     this.id = ++tripId;
+     store.trips.push(this);
+  }
+   trips(){
+    return store.trips.filter(trip => trip.passengerId === this.id);
+  }
+
+
+  drivers(){
+    let trips = this.trips();
+    return trips.map(trip => trip.drivers());
+  }
+}
+
 
 
