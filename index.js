@@ -1,6 +1,7 @@
 class Driver {
-    constructor(name, price){
-      this.name = name
-      this.price = price
-    }
+     constructor(name){
+    this.name = name;
+    this.id = ++driverId;
+    store.drivers.push(this);
   }
+}
