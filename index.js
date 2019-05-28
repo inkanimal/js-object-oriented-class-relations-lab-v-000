@@ -45,12 +45,12 @@ class Trip {
     store.trips.push(this);
   }
 
-  // driver associated with the trip
+  
   driver(){
     return store.drivers.find(driver => driver.id === this.driverId);
   }
 
-  // passenger associated with the trip
+ 
   passenger(){
     return store.passengers.find(passenger => passenger.id === this.passengerId);
   }
