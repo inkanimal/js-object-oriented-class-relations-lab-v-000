@@ -38,19 +38,23 @@ class Passenger {
 }
 
 class Trip {
-   constructor(name){
-     this.name = name;
-     this.id = ++tripId;
-     store.trips.push(this);
-  }
-   driver(){
-    return store.driver.filter(driver => driver.tripId === this.id);
+  constructor(driver, passenger){
+    this.driverId = driver.id;
+    this.passengerId = passenger.id;
+    this.id = ++tripId;
+    store.trips.push(this);
   }
 
-  drivers(){
-    let trips = this.trips();
-    return trips.map(trip => trip.drivers());
+  // driver associated with the trip
+  driver(){
+    return store.drivers.find(driver => driver.id === this.driverId);
   }
+
+  // passenger associated with the trip
+  passenger(){
+    return store.passengers.find(passenger => passenger.id === this.passengerId);
+  }
+
 }
 
 
